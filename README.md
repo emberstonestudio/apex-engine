@@ -19,7 +19,12 @@ Windows:
 Linux:
 - Run ```make``` while in the build folder
 
+<b><H3> VS Code </H3></b>
+
 This project should work with Visual Studio Code as well. Just open the folder that you cloned and if you have the C++ and CMake Tools extensions, 
 it should be recognized and will automatically make a build directory for you on Linux or Windows. 
 
 Press ```Shift+F5``` in VSCode to build with CMake.
+
+If it says no target found, press ```Shift+F7``` and select the Editor as build target. You can also select a compiler of your choice by opening
+the command pallet ```F1``` and searching ```CMake: Select a kit```
