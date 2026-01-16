@@ -5,4 +5,4 @@ file(GLOB_RECURSE IMGUI_SOURCE
 
 add_library(imgui STATIC ${IMGUI_SOURCE})
 target_include_directories(imgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/imgui)
-target_link_libraries(glfw)
+target_link_libraries(imgui PRIVATE glfw)
