@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core_types.h"
+#include "Systems/layer_system.h"
 #include <memory>
 
 namespace Core
@@ -20,11 +21,14 @@ namespace Core
 
         void Run();
 
+        Systems::LayerStack& GetLayerStack() const { return *m_LayerStack; }
+
     private:
         void Update(float deltaTime);
         void Render();
 
         std::unique_ptr<Window> m_Window;
+        std::unique_ptr<Systems::LayerStack> m_LayerStack;
         float m_DeltaTime = 0.0f;
     };
 }

@@ -4,6 +4,7 @@
 Core::Application::Application(const WindowProperties& props)
 {
     m_Window = std::make_unique<Window>(props);
+    m_LayerStack = std::make_unique<Systems::LayerStack>();
 }
 
 Core::Application::~Application() = default;
@@ -26,12 +27,15 @@ void Core::Application::Run()
 void Core::Application::Update(float deltaTime)
 {
     m_Window->PollEvents();
+    m_LayerStack->OnUpdate(deltaTime);
 }
 
 void Core::Application::Render()
 {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+
+    m_LayerStack->OnRender();
 
     m_Window->SwapBuffers();
 }
